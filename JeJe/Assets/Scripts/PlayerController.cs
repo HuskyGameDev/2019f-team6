@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    float speed = 2;
+    float speed = 4;
 
     float walkAcceleration = 75;
 
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     float groundDeceleration = 70;
 
-    float jumpHeight = 1;
+    float jumpHeight = 2;
 
     private BoxCollider2D boxCollider;
 

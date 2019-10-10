@@ -7,7 +7,6 @@ public class BonePhysics : Physics2
 
     public float startXforce = -3.0f;
     public float startYforce = 3.0f;
-    protected bool fixPos;
 
     // Start is called before the first frame update
     protected new void Start()
@@ -20,7 +19,7 @@ public class BonePhysics : Physics2
     protected new void Update()
     {
 
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, base.boxCollider.size, 0);
         foreach (Collider2D hit in hits)
         {
 

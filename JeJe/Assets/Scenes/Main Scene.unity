@@ -187,7 +187,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4386286983463941066, guid: 5495ec7f7dd7e4042967b53e7fc80348,
+        type: 3}
+      propertyPath: startXforce
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386286983463941066, guid: 5495ec7f7dd7e4042967b53e7fc80348,
+        type: 3}
+      propertyPath: startYforce
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4386286983463941065, guid: 5495ec7f7dd7e4042967b53e7fc80348, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5495ec7f7dd7e4042967b53e7fc80348, type: 3}
 --- !u!1 &178296365
 GameObject:
@@ -2071,10 +2082,9 @@ GameObject:
   - component: {fileID: 1238417131}
   - component: {fileID: 1238417130}
   - component: {fileID: 1238417134}
-  - component: {fileID: 1238417135}
   m_Layer: 0
-  m_Name: Square (1)
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2192,42 +2202,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1238417135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238417129}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68092714058d64cbc8a7f4ba484857a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minGroundNormalY: 0.65
-  gravityModifier: 1
-  targetVelocity: {x: 0, y: 0}
-  grounded: 0
-  groundNormal: {x: 0, y: 0}
-  rb2d: {fileID: 0}
-  velocity: {x: 0, y: 0}
-  contactFilter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  maxSpeed: 7
-  jumpTakeOffSpeed: 7
-  spriteRenderer: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!1 &1316570331
 GameObject:
   m_ObjectHideFlags: 0
