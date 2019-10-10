@@ -2,22 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonePhysics : MonoBehaviour
+public class BonePhysics : Physics2
 {
 
-    public Rigidbody2D boneBody;
-    public float startForce = 1.0f;
+    public float startXforce = -3.0f;
+    public float startYforce = 3.0f;
+    protected bool fixPos;
 
     // Start is called before the first frame update
-    void Start()
+    protected new void Start()
     {
-        boneBody.freezeRotation = true;
-        boneBody.AddForce(new Vector2(-2*startForce, startForce), ForceMode2D.Force);
+        base.boxCollider = GetComponent<BoxCollider2D>();
+        base.velocity += new Vector2(startXforce, startYforce);
     }
 
     // Update is called once per frame
-    void Update()
+    protected new void Update()
     {
-        
+
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
+        foreach (Collider2D hit in hits)
+        {
+
+            if (hit.gameObject.CompareTag("Player"))
+            {
+                if(!base.grounded)
+                {
+                    Destroy(this.gameObject);
+                }
+                
+            }
+
+            // Ignore our own collider.
+            if ((hit == base.boxCollider) || hit.gameObject.CompareTag("Player"))
+                continue;
+
+            ColliderDistance2D colliderDistance = hit.Distance(base.boxCollider);
+
+            // Ensure that we are still overlapping this collider.
+            // The overlap may no longer exist due to another intersected collider
+            // pushing us out of this one.
+            if (colliderDistance.isOverlapped)
+            {
+                transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
+            }
+        }
+
+        if (!base.grounded)
+        {
+
+            base.Update();
+        }
+        else
+        {
+            // Retrieve all colliders we have intersected after velocity has been applied.
+            base.velocity.x = 0;
+        }
+
     }
+
 }

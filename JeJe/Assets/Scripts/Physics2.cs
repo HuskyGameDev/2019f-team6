@@ -2,58 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Physics2 : MonoBehaviour
 {
+    protected BoxCollider2D boxCollider;
 
-    float speed = 2;
+    protected Vector2 velocity;
 
-    float walkAcceleration = 75;
+    protected bool grounded = false;
 
-    float airAcceleration = 30;
-
-    float groundDeceleration = 70;
-
-    float jumpHeight = 1;
-
-    private BoxCollider2D boxCollider;
-
-    private Vector2 velocity;
-
-    private bool grounded;
+    protected bool ignorePlayer = true;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
-    private void Update()
+    protected void Update()
     {
-        // Use GetAxisRaw to ensure our input is either 0, 1 or -1.
-        float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (grounded)
         {
             velocity.y = 0;
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                // Calculate the velocity required to achieve the target jump height.
-                velocity.y = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
-            }
-        }
-
-        float acceleration = grounded ? walkAcceleration : airAcceleration;
-        float deceleration = grounded ? groundDeceleration : 0;
-
-        if (moveInput != 0)
-        {
-            velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, acceleration * Time.deltaTime);
-        }
-        else
-        {
-            velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
         }
 
         velocity.y += Physics2D.gravity.y * Time.deltaTime;
@@ -69,6 +40,9 @@ public class PlayerController : MonoBehaviour
         {
             // Ignore our own collider.
             if (hit == boxCollider)
+                continue;
+
+            if (ignorePlayer && hit.gameObject.CompareTag("Player"))
                 continue;
 
             ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
