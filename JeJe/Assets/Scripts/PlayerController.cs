@@ -21,16 +21,15 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        // Use GetAxisRaw to ensure our input is either 0, 1 or -1.
+        // Get the move input from the keyboard
         float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (grounded)
@@ -62,25 +61,23 @@ public class PlayerController : MonoBehaviour
 
         grounded = false;
 
-        // Retrieve all colliders we have intersected after velocity has been applied.
+        // Get a list of all colliders intersecting the player
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
 
         foreach (Collider2D hit in hits)
         {
-            // Ignore our own collider.
+            // Do nothing with the player's own collider
             if (hit == boxCollider)
                 continue;
 
             ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
 
-            // Ensure that we are still overlapping this collider.
-            // The overlap may no longer exist due to another intersected collider
-            // pushing us out of this one.
+            // If overlapped
             if (colliderDistance.isOverlapped)
             {
                 transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
 
-                // If we intersect an object beneath us, set grounded to true. 
+                // If hitting the ground, set grounded to true
                 if (Vector2.Angle(colliderDistance.normal, Vector2.up) < 90 && velocity.y < 0)
                 {
                     grounded = true;

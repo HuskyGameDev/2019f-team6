@@ -12,13 +12,11 @@ public class Physics2 : MonoBehaviour
 
     protected bool ignorePlayer = true;
 
-    // Start is called before the first frame update
     protected void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     protected void Update()
     {
 
@@ -38,23 +36,22 @@ public class Physics2 : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            // Ignore our own collider.
+            // Ignore his object's own collider
             if (hit == boxCollider)
                 continue;
 
+            // If the object is set to ignore the player's collider, ignore it
             if (ignorePlayer && hit.gameObject.CompareTag("Player"))
                 continue;
 
             ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
 
-            // Ensure that we are still overlapping this collider.
-            // The overlap may no longer exist due to another intersected collider
-            // pushing us out of this one.
+            // If overlaped
             if (colliderDistance.isOverlapped)
             {
                 transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
 
-                // If we intersect an object beneath us, set grounded to true. 
+                // If on the ground, set grounded to true
                 if (Vector2.Angle(colliderDistance.normal, Vector2.up) < 90 && velocity.y < 0)
                 {
                     grounded = true;

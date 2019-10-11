@@ -32,21 +32,22 @@ public class BonePhysics : Physics2
                 
             }
 
-            // Ignore our own collider.
+            // Ignore the bone's colider and the player's collider
             if ((hit == base.boxCollider) || hit.gameObject.CompareTag("Player"))
                 continue;
 
             ColliderDistance2D colliderDistance = hit.Distance(base.boxCollider);
 
-            // Ensure that we are still overlapping this collider.
-            // The overlap may no longer exist due to another intersected collider
-            // pushing us out of this one.
+            // If overlapped
             if (colliderDistance.isOverlapped)
             {
                 transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
             }
         }
 
+        // Do not use the superclass's update method if grounded
+        // This ensures that the object won't keep falling or responding to
+        // collisions if grounded
         if (!base.grounded)
         {
 
@@ -54,7 +55,7 @@ public class BonePhysics : Physics2
         }
         else
         {
-            // Retrieve all colliders we have intersected after velocity has been applied.
+            // If grounded, set x velocity to zero
             base.velocity.x = 0;
         }
 
