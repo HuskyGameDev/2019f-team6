@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
 
     float speed = 4;
 
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+
         // Get the move input from the keyboard
         float moveInput = Input.GetAxisRaw("Horizontal");
 
