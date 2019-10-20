@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        
+
 
         // Get the move input from the keyboard
         float moveInput = Input.GetAxisRaw("Horizontal");
@@ -38,11 +40,14 @@ public class PlayerController : MonoBehaviour
         if (grounded)
         {
             velocity.y = 0;
+            animator.SetBool("Jumping", false);
+
 
             if (Input.GetButtonDown("Jump"))
             {
                 // Calculate the velocity required to achieve the target jump height.
                 velocity.y = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
+                animator.SetBool("Jumping", true);
             }
         }
 
