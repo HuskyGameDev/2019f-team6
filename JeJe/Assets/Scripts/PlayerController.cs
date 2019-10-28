@@ -22,10 +22,14 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded;
 
+    public AudioClip MusicClip;
+
+    public AudioSource MusicSource;
 
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        MusicSource.clip = MusicClip;
     }
 
     private void Update()
@@ -48,6 +52,7 @@ public class PlayerController : MonoBehaviour
                 // Calculate the velocity required to achieve the target jump height.
                 velocity.y = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
                 animator.SetBool("Jumping", true);
+                MusicSource.Play();
             }
         }
 
