@@ -5,15 +5,31 @@ using UnityEngine;
 public class BonePhysics : Physics2
 {
 
-    public float startXforce = -3.0f;
-    public float startYforce = 3.0f;
+    public float speed = 5;
+
+    private int num = 0;
+    public Transform player;
 
     // Start is called before the first frame update
     protected new void Start()
     {
-        base.boxCollider = GetComponent<BoxCollider2D>();
-        base.velocity += new Vector2(startXforce, startYforce);
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        setVelocityTowardPlayer();
+        base.ignoreGravity = true;
     }
+
+
+
+    public void setVelocityTowardPlayer()
+    {
+        base.boxCollider = GetComponent<BoxCollider2D>();
+        Vector2 aimVelocity = player.position - transform.position;
+        aimVelocity.Normalize();
+        base.velocity = aimVelocity * speed;
+    }
+
+
 
     // Update is called once per frame
     protected new void Update()
@@ -22,6 +38,9 @@ public class BonePhysics : Physics2
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, base.boxCollider.size, 0);
         foreach (Collider2D hit in hits)
         {
+            if(hit.gameObject.CompareTag("Bone") && !(hit == boxCollider) ) {
+                this.grounded = true;
+            }
 
             if (hit.gameObject.CompareTag("Player"))
             {

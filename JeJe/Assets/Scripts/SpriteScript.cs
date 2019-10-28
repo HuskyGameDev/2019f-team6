@@ -18,6 +18,9 @@ public class SpriteScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if()
+        if(false)
+        {
+
+        }
     }
 }

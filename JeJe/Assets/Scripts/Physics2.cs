@@ -12,6 +12,8 @@ public class Physics2 : MonoBehaviour
 
     protected bool ignorePlayer = true;
 
+    protected bool ignoreGravity = false;
+
     protected void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -25,7 +27,10 @@ public class Physics2 : MonoBehaviour
             velocity.y = 0;
         }
 
-        velocity.y += Physics2D.gravity.y * Time.deltaTime;
+        if (!ignoreGravity)
+        {
+            velocity.y += Physics2D.gravity.y * Time.deltaTime;
+        }
 
         transform.Translate(velocity * Time.deltaTime);
 
@@ -36,7 +41,7 @@ public class Physics2 : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            // Ignore his object's own collider
+            // Ignore This object's own collider
             if (hit == boxCollider)
                 continue;
 
@@ -46,7 +51,7 @@ public class Physics2 : MonoBehaviour
 
             ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
 
-            // If overlaped
+            // If overllaped
             if (colliderDistance.isOverlapped)
             {
                 transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
