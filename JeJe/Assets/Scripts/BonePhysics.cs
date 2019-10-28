@@ -38,9 +38,6 @@ public class BonePhysics : Physics2
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, base.boxCollider.size, 0);
         foreach (Collider2D hit in hits)
         {
-            if(hit.gameObject.CompareTag("Bone") && !(hit == boxCollider) ) {
-                this.grounded = true;
-            }
 
             if (hit.gameObject.CompareTag("Player"))
             {
@@ -61,6 +58,15 @@ public class BonePhysics : Physics2
             if (colliderDistance.isOverlapped)
             {
                 transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
+
+                if (hit.gameObject.CompareTag("Bone") && !(hit == boxCollider))
+                {
+                    if (Vector2.Angle(colliderDistance.normal, Vector2.up) < 90 && velocity.y < 0)
+                    {
+                        this.grounded = true;
+                    }
+
+                }
             }
         }
 
