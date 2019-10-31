@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
-{
+{ 
     public AudioClip MusicClip;
 
     public AudioSource MusicSource;
@@ -27,9 +27,9 @@ public class PlayerCollision : MonoBehaviour
             // Ignore non bone colliders.
             if (!boxCollider.CompareTag("Bone"))
                 continue;
+            
             MusicSource.Play();
             Debug.Log("Boned!");
-        
         }
     }
 }
