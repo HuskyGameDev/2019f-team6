@@ -18,7 +18,7 @@ public class BonePhysics : Physics2
         base.ignoreGravity = false;
     }
 
-
+    
 
     public void setVelocityTowardPlayer()
     {
@@ -28,10 +28,9 @@ public class BonePhysics : Physics2
 
         float linAngle = Mathf.Atan(linVelocity.y / linVelocity.x)- Mathf.PI/2.0f;
         Vector2 aimVelocity = new Vector2(linVelocity.x * Mathf.Cos(linAngle), linVelocity.y * Mathf.Sin(linAngle));
-        Debug.Log(linVelocity.magnitude * Mathf.Cos(linAngle) + ", " + linVelocity.magnitude * Mathf.Cos(linAngle));
-
-        float speed = aimVelocity.magnitude+0.25f;
-
+        
+        
+        float speed = aimVelocity.magnitude;
 
 
         aimVelocity.Normalize();
