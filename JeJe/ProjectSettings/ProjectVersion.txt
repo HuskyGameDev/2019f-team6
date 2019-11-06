@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 m_EditorVersion: 2019.2.10f1
 m_EditorVersionWithRevision: 2019.2.10f1 (923acd2d43aa)
+=======
+m_EditorVersion: 2019.2.11f1
+m_EditorVersionWithRevision: 2019.2.11f1 (5f859a4cfee5)
+>>>>>>> 44be1d1b472d7824450d4f17fd6eab0feb8186ee
