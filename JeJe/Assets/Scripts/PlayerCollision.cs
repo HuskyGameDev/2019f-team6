@@ -6,7 +6,7 @@ public class PlayerCollision : MonoBehaviour
 { 
     public AudioClip MusicClip;
 
-    public AudioSource MusicSource;
+    //public AudioSource MusicSource;
     private BoxCollider2D boxCollider;
 
 
@@ -14,7 +14,7 @@ public class PlayerCollision : MonoBehaviour
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        MusicSource.clip = MusicClip;
+        //MusicSource.clip = MusicClip;
     }
 
     // Update is called once per frame
@@ -27,8 +27,10 @@ public class PlayerCollision : MonoBehaviour
             // Ignore non bone colliders.
             if (!boxCollider.CompareTag("Bone"))
                 continue;
-            
-            MusicSource.Play();
+
+            //Destroy(hit.gameObject);
+
+            //MusicSource.Play();
             Debug.Log("Boned!");
         }
     }

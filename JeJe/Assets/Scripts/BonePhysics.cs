@@ -50,7 +50,10 @@ public class BonePhysics : Physics2
                 base.ignoreGravity = true;
                 if(!base.grounded)
                 {
+                    // Delete bone game object
+                    // Decrement JeJe's health
                     Destroy(this.gameObject);
+                    Healthbar.numHeads--;
                 }
                 
             }
@@ -62,6 +65,8 @@ public class BonePhysics : Physics2
             ColliderDistance2D colliderDistance = hit.Distance(base.boxCollider);
 
             // If overlapped
+
+
             if (colliderDistance.isOverlapped)
             {
                 transform.Translate(colliderDistance.pointA - colliderDistance.pointB);

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
-    public int health = 4;
-    public int numHeads = 4;
+
+    public const int maxHealth = 4; // Max health
+    public static int numHeads; // Num heads on screen
 
     public Image[] heads;
     public Sprite JeHead;
@@ -14,7 +15,7 @@ public class Healthbar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        numHeads = maxHealth;
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class Healthbar : MonoBehaviour
 
         for (int i = 0; i < heads.Length; i++)
         {
-            if (i < health)
+            if (i < maxHealth)
             {
                 heads[i].sprite = JeHead;
             }
