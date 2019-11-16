@@ -192,6 +192,11 @@ PrefabInstance:
       propertyPath: spawnDelay
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6024489606419587445, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
+        type: 3}
+      propertyPath: spawnOffset.x
+      value: -2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4702756573626218796, guid: 9ec4e2e483b2a41b9b5fc9f6107485af, type: 3}
     - {fileID: 5285455429591122045, guid: 9ec4e2e483b2a41b9b5fc9f6107485af, type: 3}
