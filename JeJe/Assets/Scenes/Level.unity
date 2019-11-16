@@ -35047,6 +35047,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 5.5391655
       objectReference: {fileID: 0}
+    - target: {fileID: 7444129254397423382, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: MusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e6941ec217c35834d9e621dd8b3a414c, type: 3}
+    - target: {fileID: 7444129254397423382, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: MusicSource
+      value: 
+      objectReference: {fileID: 1451997434}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b25af9411baaf45dfad383b7338e0671, type: 3}
 --- !u!1 &1409448813 stripped

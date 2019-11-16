@@ -9,7 +9,7 @@ public class BoneSpawner : MonoBehaviour
     private float nextSpawn = 0;
 
     public GameObject bonePrefab;
-    public float spawnDelay = 3;
+    public float spawnDelay = 1/5;
 
 
     public Vector2 spawnOffset = new Vector2(-2, 0);
