@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/LoreScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Main Scene.unity
-    guid: 05cd74717cb8e481eafe23f820cdbc99
-  - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 17bcc8ce989ba4d2b856db8b852d322f
   - enabled: 1
-    path: Assets/Scenes/Lose.unity
-    guid: 010e87366f81c0b4b869976e1061bada
+    path: Assets/Scenes/Main Scene.unity
+    guid: 05cd74717cb8e481eafe23f820cdbc99
+  - enabled: 1
+    path: Assets/Scenes/Lose Scene.unity
+    guid: df7becfe423b09e4d93a31d038aeabfe
+  - enabled: 1
+    path: Assets/Scenes/Win Scene.unity
+    guid: 7d5a230eea3ca514188d5aa698c3ba33
   m_configObjects: {}
