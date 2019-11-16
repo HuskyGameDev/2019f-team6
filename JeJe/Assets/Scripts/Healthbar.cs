@@ -8,6 +8,7 @@ public class Healthbar : MonoBehaviour
 
     public const int maxHealth = 4; // Max health
     public static int numHeads; // Num heads on screen
+    
 
     public Image[] heads;
     public Sprite JeHead;
@@ -16,12 +17,13 @@ public class Healthbar : MonoBehaviour
     void Start()
     {
         numHeads = maxHealth;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        int hits = 0;
         for (int i = 0; i < heads.Length; i++)
         {
             if (i < maxHealth)
@@ -37,6 +39,13 @@ public class Healthbar : MonoBehaviour
             {
                 heads[i].enabled = false;
             }
+            if (heads[i] == false) {
+                hits=hits+1;
+            }
+        }
+
+        if (hits == maxHealth) {
+            FindObjectOfType<GameManager1>().endGame();
         }
     }
 }
