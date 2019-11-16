@@ -22,7 +22,10 @@ public class menu : MonoBehaviour
     public void QuitGame()
     {
         //Debug.Log("quit game!");
+#if UNITY_EDITOR
         EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif 
     }
 }

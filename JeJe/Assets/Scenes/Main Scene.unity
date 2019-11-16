@@ -120,6 +120,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &43926593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7444129254397423380, guid: b25af9411baaf45dfad383b7338e0671,
+    type: 3}
+  m_PrefabInstance: {fileID: 7444129255356830205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &43926599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43926593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a446f88b295b5af4daa01a8eacc4e75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heads: []
+  JeHead: {fileID: 267789307602386184, guid: 2aced6833d2cb444c956bd7d6d6850e6, type: 3}
 --- !u!1001 &128734896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3560,12 +3580,12 @@ PrefabInstance:
     - target: {fileID: 7444129254397423376, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 7444129254397423376, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.79
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7444129254397423376, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
@@ -3617,5 +3637,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 280592843}
+    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: MusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d29422f331f41bf43822c45cc976901c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b25af9411baaf45dfad383b7338e0671, type: 3}
