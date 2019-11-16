@@ -34953,7 +34953,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a446f88b295b5af4daa01a8eacc4e75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heads: []
+  heads:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   JeHead: {fileID: 267789307602386184, guid: 2aced6833d2cb444c956bd7d6d6850e6, type: 3}
 --- !u!95 &1409448815 stripped
 Animator:
