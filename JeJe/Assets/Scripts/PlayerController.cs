@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded;
 
+    bool lastFace = true;
+
     public AudioClip MusicClip;
 
     public AudioSource MusicSource;
@@ -35,8 +37,21 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
-        
 
+        // Check for facing left or right for animation
+       
+        if (Input.GetAxis("Horizontal") > 0.01)
+        {
+            animator.SetBool("FacingRight", true);
+            lastFace = true;
+        } else if (Input.GetAxis("Horizontal") < -0.01)
+        {
+            animator.SetBool("FacingRight", false);
+            lastFace = false;
+        } else
+        {
+            animator.SetBool("FacingRight", lastFace);
+        }
 
         // Get the move input from the keyboard
         float moveInput = Input.GetAxisRaw("Horizontal");
@@ -55,6 +70,13 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Jumping", true);
                 
             }
+        } else
+        {
+            // fast fall input
+            if (Input.GetKeyDown("s"))
+            {
+                velocity.y = -Mathf.Sqrt(jumpHeight * Mathf.Abs(Physics2D.gravity.y));
+            }
         }
 
         float acceleration = grounded ? walkAcceleration : airAcceleration;
@@ -64,7 +86,9 @@ public class PlayerController : MonoBehaviour
         {
             velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, acceleration * Time.deltaTime);
         }
+
         else
+        
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
         }
