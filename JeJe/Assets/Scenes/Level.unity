@@ -34954,10 +34954,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heads:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1960644166}
+  - {fileID: 1068390408}
+  - {fileID: 985656230}
+  - {fileID: 1182313239}
   JeHead: {fileID: 267789307602386184, guid: 2aced6833d2cb444c956bd7d6d6850e6, type: 3}
 --- !u!95 &1409448815 stripped
 Animator:
