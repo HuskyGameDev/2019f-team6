@@ -5,9 +5,8 @@ using UnityEngine;
 public class BonePhysics : Physics2
 {
 
-    public float speed = 5;
-
-    private int num = 0;
+    
+    
     public Transform player;
 
     // Start is called before the first frame update
@@ -16,16 +15,26 @@ public class BonePhysics : Physics2
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         setVelocityTowardPlayer();
-        base.ignoreGravity = true;
+        base.ignoreGravity = false;
     }
 
-
+    
 
     public void setVelocityTowardPlayer()
     {
+        
         base.boxCollider = GetComponent<BoxCollider2D>();
-        Vector2 aimVelocity = player.position - transform.position;
+        Vector2 linVelocity = player.position - transform.position;
+
+        float linAngle = Mathf.Atan(linVelocity.y / linVelocity.x)- Mathf.PI/2.0f;
+        Vector2 aimVelocity = new Vector2(linVelocity.x * Mathf.Cos(linAngle), linVelocity.y * Mathf.Sin(linAngle));
+        
+        
+        float speed = aimVelocity.magnitude;
+
+
         aimVelocity.Normalize();
+   
         base.velocity = aimVelocity * speed;
     }
 
@@ -41,6 +50,8 @@ public class BonePhysics : Physics2
 
             if (hit.gameObject.CompareTag("Player"))
             {
+                base.ignoreGravity = true;
+                Destroy(GetComponent<Rigidbody2D>());
                 if(!base.grounded)
                 {
                     Destroy(this.gameObject);
@@ -64,6 +75,8 @@ public class BonePhysics : Physics2
                     if (Vector2.Angle(colliderDistance.normal, Vector2.up) < 90 && velocity.y < 0)
                     {
                         this.grounded = true;
+                        Destroy(GetComponent<Rigidbody2D>());
+                        base.ignoreGravity = true;
                     }
 
                 }
@@ -82,6 +95,8 @@ public class BonePhysics : Physics2
         {
             // If grounded, set x velocity to zero
             base.velocity.x = 0;
+            Destroy(GetComponent<Rigidbody2D>());
+            base.ignoreGravity = true;
         }
 
     }
