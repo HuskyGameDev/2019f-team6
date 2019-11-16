@@ -12,6 +12,9 @@ public class BoneSpawner : MonoBehaviour
     public float spawnDelay = 3;
 
 
+    public Vector2 spawnOffset = new Vector2(-2, 0);
+
+
 
 
     // Start is called before the first frame update
@@ -35,7 +38,7 @@ public class BoneSpawner : MonoBehaviour
     private void Spawn()
     {
         nextSpawn = 0;
-        bonePrefab = Instantiate(Resources.Load("Prefabs/Bone") as GameObject, transform.position, transform.rotation);
+        bonePrefab = Instantiate(Resources.Load("Prefabs/Bone") as GameObject, transform.position + new Vector3(spawnOffset.x, spawnOffset.y), transform.rotation);
         bonePrefab.GetComponent<BonePhysics>().setVelocityTowardPlayer();
 
     }
