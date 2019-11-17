@@ -45,7 +45,12 @@ public class BonePhysics : Physics2
         // If bone is grounded, it is in a fixed position. No need to detect collisions
         if (base.grounded) return;
 
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size / 2, 0);
+        Vector2 boxDimRevised = boxCollider.size;
+        boxDimRevised.x /= 4;
+        boxDimRevised.y /= 4;
+
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxDimRevised, 0);
+
         foreach (Collider2D hit in hits)
         {
 
