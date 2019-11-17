@@ -8,7 +8,9 @@ public class Healthbar : MonoBehaviour
 
     public const int maxHealth = 4; // Max health
     public static int numHeads; // Num heads on screen
-    int hits=0;
+    public int hits=0;
+    public int isTesting = 1;
+
 
     public Image[] heads;
     public Sprite JeHead;
@@ -44,7 +46,7 @@ public class Healthbar : MonoBehaviour
             }
         }
 
-        if (hits == maxHealth) {
+        if (hits == maxHealth&& isTesting==0) {
             FindObjectOfType<GameManager1>().endGame();
         }
     }
