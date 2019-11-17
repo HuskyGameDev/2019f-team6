@@ -6,14 +6,21 @@ using UnityEngine;
 public class BackgroundParallax : MonoBehaviour
 {
 
-    public Transform background;
-    private float parallaxScale;
+    public Transform backgroundParent;
 
-    public float parallaxMagnitude = 10;
+    private Transform[] backgrounds;
+    private float[] parallaxScales;
+
+    public float parallaxMagnitude = 2f;
+    public float interpolateScale = 0.5f;
 
     private Transform camTransform;
 
     private Vector3 prevCamPos;
+
+    private int numBackgrounds = 0;
+
+ 
 
 
 
@@ -23,19 +30,33 @@ public class BackgroundParallax : MonoBehaviour
         camTransform = Camera.main.transform;
         prevCamPos = camTransform.position;
 
-        parallaxScale = background.position.z * -parallaxMagnitude;
+
+        backgrounds = backgroundParent.GetComponentsInChildren<Transform>();
+
+        numBackgrounds = backgrounds.Length;
+
+        parallaxScales = new float[numBackgrounds];
+
+        for(int i = 0; i < numBackgrounds; i++) {
+            parallaxScales[i] = backgrounds[i].position.z * -parallaxMagnitude;
+        }
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float parallaxOffset = (prevCamPos.x - camTransform.position.x) * parallaxScale;
+        for(int i = 0; i < numBackgrounds; i++)
+        {
+            float parallaxOffset = (prevCamPos.x - camTransform.position.x) * parallaxScales[i];
 
-        float newPosX = background.position.x + parallaxOffset;
+            float newPosX = backgrounds[i].position.x + parallaxOffset;
 
-        Vector3 newPos = new Vector3(newPosX, background.position.y, background.position.z);
+            Vector3 newPos = new Vector3(newPosX, backgrounds[i].position.y, backgrounds[i].position.z);
 
-        background.position = Vector3.Lerp(background.position, newPos, 0.5f * Time.deltaTime);
+            backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, newPos, interpolateScale * Time.deltaTime);
+        }
+
 
         prevCamPos = camTransform.position;
     }
