@@ -15,7 +15,7 @@ public class Score : MonoBehaviour
     {
 
         timer += Time.deltaTime;
-        helper = ((int)(timer % 60)) * 20;
+        helper = ((int)(timer)) * 20;
         currentScore.text ="Score: " + helper.ToString() ;
     }
     string LeadingZero(int n)
