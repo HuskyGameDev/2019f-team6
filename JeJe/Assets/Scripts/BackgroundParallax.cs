@@ -48,11 +48,18 @@ public class BackgroundParallax : MonoBehaviour
     {
         for(int i = 0; i < numBackgrounds; i++)
         {
-            float parallaxOffset = (prevCamPos.x - camTransform.position.x) * parallaxScales[i];
+            //float parallaxOffset = (prevCamPos.x - camTransform.position.x) * parallaxScales[i];
 
-            float newPosX = backgrounds[i].position.x + parallaxOffset;
+            //float newPosX = backgrounds[i].position.x + parallaxOffset;
 
-            Vector3 newPos = new Vector3(newPosX, backgrounds[i].position.y, backgrounds[i].position.z);
+            //Vector3 newPos = new Vector3(newPosX, backgrounds[i].position.y, backgrounds[i].position.z);
+
+            Vector3 parallaxOffset = (prevCamPos - camTransform.position) * parallaxScales[i];
+
+            parallaxOffset.z = 0;
+
+            Vector3 newPos = backgrounds[i].position + parallaxOffset;
+
 
             backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, newPos, interpolateScale * Time.deltaTime);
         }

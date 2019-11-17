@@ -11,10 +11,11 @@ public class BonePhysics : Physics2
 
     public float speed = 10;
 
+    public float knockbackScale = 1f;
+
     // Start is called before the first frame update
     protected new void Start()
     {
-
         player = GameObject.FindGameObjectWithTag("Player").transform;
         setVelocityTowardPlayer();
         base.ignoreGravity = true;
@@ -27,8 +28,6 @@ public class BonePhysics : Physics2
         
         boxCollider = GetComponent<BoxCollider2D>();
         Vector2 linVelocity = player.position - transform.position;
-
-     
 
         linVelocity.Normalize();
    
@@ -53,26 +52,44 @@ public class BonePhysics : Physics2
 
         foreach (Collider2D hit in hits)
         {
+            // Ignore the bone's own collider
+            if (hit == base.boxCollider) continue;
+
+            ColliderDistance2D colliderDistance = hit.Distance(base.boxCollider);
 
             if (hit.gameObject.CompareTag("Player"))
             {
                 base.ignoreGravity = true;
-                if(!base.grounded)
+                if (!base.grounded)
                 {
                     // Delete bone game object
                     // Decrement JeJe's health
                     Destroy(this.gameObject);
                     Healthbar.numHeads--;
+
+
+                    int xKnockDir = 0;
+                    if(colliderDistance.pointB.x - colliderDistance.pointA.x < 0)
+                    {
+                        xKnockDir = -1;
+                    } else if(colliderDistance.pointB.x - colliderDistance.pointA.x > 0)
+                    {
+                        xKnockDir = 1;
+                    }
+
+                    /*
+                    player.gameObject.GetComponent<PlayerController>().velocity.x
+                        += knockbackScale * xKnockDir;
+                        */
+                        
                 }
-                
+
             }
 
-            // Ignore the bone's colider and the player's collider
-            if ((hit == base.boxCollider) || hit.gameObject.CompareTag("Player"))
+            // Ignore the player's collider
+            if (hit.gameObject.CompareTag("Player"))
                 continue;
 
-
-            ColliderDistance2D colliderDistance = hit.Distance(base.boxCollider);
 
             // If overlapped, translate bone in the opposite direction of the overlap and ground it
             if (colliderDistance.isOverlapped)

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private BoxCollider2D boxCollider;
 
-    private Vector2 velocity;
+    public Vector2 velocity;
 
     private bool grounded;
 
