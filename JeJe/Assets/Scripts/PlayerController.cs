@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 // Calculate the velocity required to achieve the target jump height.
-                MusicSource.Play();
+                // MusicSource.Play();
                 velocity.y = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
                 animator.SetBool("Jumping", true);
                 

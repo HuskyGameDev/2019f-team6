@@ -13,8 +13,6 @@ public class Healthbar : MonoBehaviour
     public Image[] heads;
     public Sprite JeHead;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
