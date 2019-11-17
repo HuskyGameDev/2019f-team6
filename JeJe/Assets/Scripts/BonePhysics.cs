@@ -25,7 +25,7 @@ public class BonePhysics : Physics2
     public void setVelocityTowardPlayer()
     {
         
-        base.boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
         Vector2 linVelocity = player.position - transform.position;
 
      
@@ -41,7 +41,8 @@ public class BonePhysics : Physics2
     protected new void Update()
     {
 
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, base.boxCollider.size / 2, 0);
+
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size / 2, 0);
         foreach (Collider2D hit in hits)
         {
 
@@ -62,23 +63,33 @@ public class BonePhysics : Physics2
             if ((hit == base.boxCollider) || hit.gameObject.CompareTag("Player"))
                 continue;
 
+            // If bone is grounded, it is in a fixed position. Do not correct for collisions
+            if (base.grounded) continue; 
+
             ColliderDistance2D colliderDistance = hit.Distance(base.boxCollider);
 
-            // If overlapped
-
-
+            // If overlapped, translate bone in the opposite direction of the overlap and ground it
             if (colliderDistance.isOverlapped)
             {
                 transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
 
-                if (hit.gameObject.CompareTag("Bone") && !(hit == boxCollider))
+                if ( (hit.gameObject.CompareTag("Bone") || hit.gameObject.CompareTag("Ground") ) && !(hit == boxCollider))
                 {
+                    // If on top of bone
                     if (Vector2.Angle(colliderDistance.normal, Vector2.up) < 90 && velocity.y < 0)
                     {
                         this.grounded = true;
                         base.ignoreGravity = true;
                     }
 
+                    // If colliding from the side
+                    if ( (Vector2.Angle(colliderDistance.normal, Vector2.right) < 90 ||
+                        Vector2.Angle(colliderDistance.normal, Vector2.left) < 90 ) && velocity.y < 0)
+                    {
+                        velocity.x = 0;
+                    }
+
+                    
                 }
             }
         }

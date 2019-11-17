@@ -51,7 +51,7 @@ public class Physics2 : MonoBehaviour
 
             ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
 
-            // If overllaped
+            // If overlapped
             if (colliderDistance.isOverlapped)
             {
                 transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
