@@ -39,7 +39,7 @@ public class Healthbar : MonoBehaviour
             {
                 heads[i].enabled = false;
             }
-            if (heads[i] == false) {
+            if (heads[i].enabled == false) {
                 hits=hits+1;
             }
         }
