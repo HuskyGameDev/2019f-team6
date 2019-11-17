@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     int helper;
     void Awake()
     {
-        //currentScore = GetComponent<Text>();
+        currentScore = GetComponent<Text>();
     }
     void Update()
     {
