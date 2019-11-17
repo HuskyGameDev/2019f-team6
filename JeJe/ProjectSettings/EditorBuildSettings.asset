@@ -11,10 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoreScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Title Scene.unity
-    guid: 7bfcb221ed5c1e04e84e808a786eaf27
   - enabled: 1
     path: Assets/Scenes/Main Scene.unity
     guid: 05cd74717cb8e481eafe23f820cdbc99
+  - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 17bcc8ce989ba4d2b856db8b852d322f
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 010e87366f81c0b4b869976e1061bada
   m_configObjects: {}
