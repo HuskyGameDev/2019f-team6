@@ -11,7 +11,7 @@ public class BonePhysics : Physics2
 
     public float speed = 10;
 
-    public float knockbackScale = 1f;
+    public float knockbackScale = 10f;
 
     // Start is called before the first frame update
     protected new void Start()
@@ -69,19 +69,36 @@ public class BonePhysics : Physics2
 
 
                     int xKnockDir = 0;
-                    if(colliderDistance.pointB.x - colliderDistance.pointA.x < 0)
+                    if((colliderDistance.pointB.x - colliderDistance.pointA.x) < 0)
                     {
                         xKnockDir = -1;
-                    } else if(colliderDistance.pointB.x - colliderDistance.pointA.x > 0)
+                    } else if((colliderDistance.pointB.x - colliderDistance.pointA.x) > 0)
                     {
                         xKnockDir = 1;
                     }
 
-                    /*
-                    player.gameObject.GetComponent<PlayerController>().velocity.x
-                        += knockbackScale * xKnockDir;
-                        */
-                        
+
+                    //player.gameObject.GetComponent<PlayerController>().velocity.x
+                    //    += knockbackScale * xKnockDir;
+
+                    Vector2 knockVelocity = base.velocity;
+                    knockVelocity.Normalize();
+
+                    // KNOCKBACK
+                    // If grounded, make player bounce up off the ground if hit
+                    // Scale knockBack down by half to make less dramatic
+                    if(player.gameObject.GetComponent<PlayerController>().grounded)
+                    {
+                        knockVelocity.y = Mathf.Abs(knockVelocity.y);
+                        player.gameObject.GetComponent<PlayerController>().grounded = false;
+                        knockVelocity /= 2;
+
+                    }
+                    player.gameObject.GetComponent<PlayerController>().velocity
+                        += knockbackScale * knockVelocity;
+
+                    
+
                 }
 
             }

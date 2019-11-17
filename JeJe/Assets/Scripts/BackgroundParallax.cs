@@ -9,7 +9,7 @@ public class BackgroundParallax : MonoBehaviour
     public Transform backgroundParent;
 
     private Transform[] backgrounds;
-    private float[] parallaxScales;
+    private float[] parallaxMultipliers;
 
     public float parallaxMagnitude = 2f;
     public float interpolateScale = 0.5f;
@@ -35,10 +35,10 @@ public class BackgroundParallax : MonoBehaviour
 
         numBackgrounds = backgrounds.Length;
 
-        parallaxScales = new float[numBackgrounds];
+        parallaxMultipliers = new float[numBackgrounds];
 
         for(int i = 0; i < numBackgrounds; i++) {
-            parallaxScales[i] = backgrounds[i].position.z * -parallaxMagnitude;
+            parallaxMultipliers[i] = backgrounds[i].position.z * -parallaxMagnitude;
         }
 
     }
@@ -48,13 +48,8 @@ public class BackgroundParallax : MonoBehaviour
     {
         for(int i = 0; i < numBackgrounds; i++)
         {
-            //float parallaxOffset = (prevCamPos.x - camTransform.position.x) * parallaxScales[i];
 
-            //float newPosX = backgrounds[i].position.x + parallaxOffset;
-
-            //Vector3 newPos = new Vector3(newPosX, backgrounds[i].position.y, backgrounds[i].position.z);
-
-            Vector3 parallaxOffset = (prevCamPos - camTransform.position) * parallaxScales[i];
+            Vector3 parallaxOffset = (prevCamPos - camTransform.position) * parallaxMultipliers[i];
 
             parallaxOffset.z = 0;
 

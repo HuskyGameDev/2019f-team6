@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 velocity;
 
-    private bool grounded;
+    public bool grounded;
 
     bool lastFace = true;
 
@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
+        Debug.Log(velocity);
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
         // Check for facing left or right for animation
@@ -104,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            // Do nothing with the player's own collider
+            // Ignore player's own collider
             if (hit == boxCollider)
                 continue;
 
