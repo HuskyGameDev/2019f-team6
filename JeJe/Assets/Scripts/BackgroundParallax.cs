@@ -11,8 +11,12 @@ public class BackgroundParallax : MonoBehaviour
     private Transform[] backgrounds;
     private float[] parallaxMultipliers;
 
-    public float parallaxMagnitude = 2f;
+    public float parallaxMagnitude = 1f;
     public float interpolateScale = 0.5f;
+
+    public bool yParallaxEnabled = false;
+
+    private Vector3 backgroundVelocity = Vector3.zero;
 
     private Transform camTransform;
 
@@ -55,8 +59,20 @@ public class BackgroundParallax : MonoBehaviour
 
             Vector3 newPos = backgrounds[i].position + parallaxOffset;
 
+            if(!yParallaxEnabled)
+            {
+                newPos.y = backgrounds[i].position.y;
+            }
 
+
+            //backgrounds[i].position = Vector3.SmoothDamp(backgrounds[i].position, newPos, ref backgroundVelocity, 1);
             backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, newPos, interpolateScale * Time.deltaTime);
+            //Debug.Log(Time.deltaTime);
+
+            //Vector3 lerpedPos = Vector3.Lerp(backgrounds[i].position, newPos, interpolateScale * Time.deltaTime);
+            //backgrounds[i].position = Vector3.SmoothDamp(backgrounds[i].position, lerpedPos, ref backgroundVelocity, 2* Time.deltaTime);
+
+
         }
 
 

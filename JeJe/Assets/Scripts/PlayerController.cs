@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log(velocity);
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
         // Check for facing left or right for animation
