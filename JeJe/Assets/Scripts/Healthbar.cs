@@ -16,8 +16,7 @@ public class Healthbar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numHeads = maxHealth;
-        
+        numHeads = maxHealth;   
     }
 
     // Update is called once per frame
