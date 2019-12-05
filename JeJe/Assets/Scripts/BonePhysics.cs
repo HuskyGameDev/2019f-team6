@@ -127,6 +127,7 @@ public class BonePhysics : Physics2
                         Vector2.Angle(colliderDistance.normal, Vector2.left) < 90 ) && velocity.y < 0)
                     {
                         velocity.x = 0;
+                        velocity.y = -speed;
                     }
 
                     
