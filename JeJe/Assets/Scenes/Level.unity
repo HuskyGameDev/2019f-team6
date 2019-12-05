@@ -127,11 +127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6024489606419587446, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
-        type: 3}
-      propertyPath: m_Name
-      value: BoneSpawner
-      objectReference: {fileID: 0}
     - target: {fileID: 6024489606419587440, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -196,6 +191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnOffset.x
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024489606419587446, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
+        type: 3}
+      propertyPath: m_Name
+      value: BoneSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4702756573626218796, guid: 9ec4e2e483b2a41b9b5fc9f6107485af, type: 3}
@@ -36246,20 +36246,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7444129254397423380, guid: b25af9411baaf45dfad383b7338e0671,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 7444129254397423376, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.22
+      value: -9.2
       objectReference: {fileID: 0}
     - target: {fileID: 7444129254397423376, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.1
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 7444129254397423376, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
@@ -36316,16 +36311,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.262425
       objectReference: {fileID: 0}
-    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1409448815}
-    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
-        type: 3}
-      propertyPath: MusicClip
-      value: 
-      objectReference: {fileID: 8300000, guid: d29422f331f41bf43822c45cc976901c, type: 3}
     - target: {fileID: 7444129254397423379, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
       propertyPath: m_Offset.x
@@ -36346,6 +36331,31 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 5.5391655
       objectReference: {fileID: 0}
+    - target: {fileID: 7444129254397423379, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444129254397423380, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1409448815}
+    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: MusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d29422f331f41bf43822c45cc976901c, type: 3}
+    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 512440131}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b25af9411baaf45dfad383b7338e0671, type: 3}
 --- !u!1 &1409448813 stripped
@@ -36678,7 +36688,7 @@ GameObject:
   - component: {fileID: 1655198555}
   m_Layer: 0
   m_Name: win
-  m_TagString: Untagged
+  m_TagString: win
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36696,6 +36706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 512440131}
+  player: {fileID: 1409448813}
+  daddy: {fileID: 1655198554}
+  tally: 0
 --- !u!61 &1655198556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36706,10 +36719,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005958736, y: -2.1397717}
+  m_Offset: {x: -0.0059587955, y: -1.6287017}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -36720,7 +36733,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0563464, y: 5.632714}
+  m_Size: {x: 3.0563464, y: 6.654854}
   m_EdgeRadius: 0
 --- !u!212 &1655198557
 SpriteRenderer:
@@ -36729,7 +36742,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655198554}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -36779,7 +36792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655198554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.05, y: 8.9629545, z: -189.65784}
+  m_LocalPosition: {x: 20.8, y: 9.1, z: -189.65784}
   m_LocalScale: {x: 1.2199, y: 1.2199, z: 1.2199}
   m_Children: []
   m_Father: {fileID: 0}
