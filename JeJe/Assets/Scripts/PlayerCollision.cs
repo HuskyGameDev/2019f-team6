@@ -7,9 +7,9 @@ public class PlayerCollision : MonoBehaviour
 {
     public GameManager1 gameManager;
 
-    public AudioClip MusicClip;
+    
 
-    //public AudioSource MusicSource;
+    
     private BoxCollider2D boxCollider;
 
 
@@ -17,7 +17,7 @@ public class PlayerCollision : MonoBehaviour
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        //MusicSource.clip = MusicClip;
+       
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class PlayerCollision : MonoBehaviour
           
             //Destroy(hit.gameObject);
             
-            //MusicSource.Play();
+           
             Debug.Log("Boned!");
         }
         

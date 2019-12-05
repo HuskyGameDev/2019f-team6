@@ -1644,7 +1644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.600006, y: -3.399994}
+  m_AnchoredPosition: {x: -5.5999756, y: -3.399994}
   m_SizeDelta: {x: 87.5, y: 244.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1230402340
@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebe8f9ed6baebc4090ed9b2ed1285b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicClip: {fileID: 8300000, guid: 8c458b1a19e9cf54580feca664c4d5bc, type: 3}
+  MusicClip: {fileID: 8300000, guid: 480db5ca0e12d8a4faf2cc7295ec2eed, type: 3}
   MusicSource: {fileID: 1568218949}
 --- !u!82 &1568218949
 AudioSource:

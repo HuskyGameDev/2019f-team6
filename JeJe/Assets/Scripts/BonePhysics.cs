@@ -19,6 +19,7 @@ public class BonePhysics : Physics2
         player = GameObject.FindGameObjectWithTag("Player").transform;
         setVelocityTowardPlayer();
         base.ignoreGravity = true;
+
     }
 
     
@@ -66,7 +67,7 @@ public class BonePhysics : Physics2
                     // Decrement JeJe's health
                     Destroy(this.gameObject);
                     Healthbar.numHeads--;
-
+              
 
                     int xKnockDir = 0;
                     if((colliderDistance.pointB.x - colliderDistance.pointA.x) < 0)
