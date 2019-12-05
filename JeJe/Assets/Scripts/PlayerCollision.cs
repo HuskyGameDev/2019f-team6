@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PlayerCollision : MonoBehaviour
 {
-    public GameManager1 gameManager;
+    
 
     public AudioClip MusicClip;
 
@@ -28,15 +27,13 @@ public class PlayerCollision : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             // Ignore non bone colliders.
-            if (!boxCollider.CompareTag("Bone"))  
-            continue;
-          
+            if (!boxCollider.CompareTag("Bone"))
+                continue;
+
             //Destroy(hit.gameObject);
-            
+
             //MusicSource.Play();
             Debug.Log("Boned!");
         }
-        
     }
-    
 }
