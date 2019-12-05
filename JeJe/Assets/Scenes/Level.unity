@@ -127,15 +127,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6024489606419587446, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
+        type: 3}
+      propertyPath: m_Name
+      value: BoneSpawner
+      objectReference: {fileID: 0}
     - target: {fileID: 6024489606419587440, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.8
+      value: 19.01
       objectReference: {fileID: 0}
     - target: {fileID: 6024489606419587440, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.47
+      value: 6.73
       objectReference: {fileID: 0}
     - target: {fileID: 6024489606419587440, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
         type: 3}
@@ -191,11 +196,6 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnOffset.x
       value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6024489606419587446, guid: 9ec4e2e483b2a41b9b5fc9f6107485af,
-        type: 3}
-      propertyPath: m_Name
-      value: BoneSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4702756573626218796, guid: 9ec4e2e483b2a41b9b5fc9f6107485af, type: 3}
@@ -35144,6 +35144,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7444129254397423380, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7444129254397423376, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35209,6 +35214,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.262425
       objectReference: {fileID: 0}
+    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1409448815}
+    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: MusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d29422f331f41bf43822c45cc976901c, type: 3}
     - target: {fileID: 7444129254397423379, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
       propertyPath: m_Offset.x
@@ -35229,21 +35244,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 5.5391655
       objectReference: {fileID: 0}
-    - target: {fileID: 7444129254397423380, guid: b25af9411baaf45dfad383b7338e0671,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1409448815}
-    - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
-        type: 3}
-      propertyPath: MusicClip
-      value: 
-      objectReference: {fileID: 8300000, guid: d29422f331f41bf43822c45cc976901c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b25af9411baaf45dfad383b7338e0671, type: 3}
 --- !u!1 &1409448813 stripped
