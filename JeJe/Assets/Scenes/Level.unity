@@ -36341,6 +36341,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7444129254397423382, guid: b25af9411baaf45dfad383b7338e0671,
+        type: 3}
+      propertyPath: MusicSource
+      value: 
+      objectReference: {fileID: 1451997434}
     - target: {fileID: 7444129254397423383, guid: b25af9411baaf45dfad383b7338e0671,
         type: 3}
       propertyPath: animator
