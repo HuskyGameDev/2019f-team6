@@ -7,6 +7,8 @@ public class GameManager1 : MonoBehaviour
         SceneManager.LoadScene("Lose Scene");
     }
     public void winGame()
-    { 
+    {
+        
+        SceneManager.LoadScene("Win Scene");
     }
     }
