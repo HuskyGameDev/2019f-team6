@@ -14,14 +14,11 @@ public class LoreScreenScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey) // start game (Enter)
-        {
-            SceneManager.LoadScene("Main Scene"); // name of the first scene we want to pull up 
+        if (Input.anyKey) // start game 
+        { 
+            SceneManager.LoadScene("Level"); // name of the first scene we want to pull up
         }
-        if (Input.GetButtonDown("Cancel")) // exit game (Escape)
-        {
-            SceneManager.LoadScene("Menu");
-        }
+        
     }
 
  }

@@ -36,7 +36,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
         // Check for facing left or right for animation
