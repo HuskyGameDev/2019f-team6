@@ -10,7 +10,7 @@ public class winCon : MonoBehaviour
     public int tally=0;
     void Update() {
 
-        if (player.transform.position.x>=18) {
+        if (player.transform.position.x>=18.5) {
             gameManager.winGame();
         }
         if (player.transform.position.y < -11) {
