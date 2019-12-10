@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerCollision : MonoBehaviour
 {
+    public GameManager1 gameManager;
+
     
 
-    public AudioClip MusicClip;
-
-    //public AudioSource MusicSource;
+    
     private BoxCollider2D boxCollider;
 
 
@@ -16,7 +17,7 @@ public class PlayerCollision : MonoBehaviour
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        //MusicSource.clip = MusicClip;
+       
     }
 
     // Update is called once per frame
@@ -27,13 +28,15 @@ public class PlayerCollision : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             // Ignore non bone colliders.
-            if (!boxCollider.CompareTag("Bone"))
-                continue;
-
+            if (!boxCollider.CompareTag("Bone"))  
+            continue;
+          
             //Destroy(hit.gameObject);
-
-            //MusicSource.Play();
+            
+           
             Debug.Log("Boned!");
         }
+        
     }
+    
 }

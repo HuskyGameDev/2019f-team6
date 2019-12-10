@@ -36,7 +36,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
         // Check for facing left or right for animation
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 // Calculate the velocity required to achieve the target jump height.
-                // MusicSource.Play();
+                MusicSource.Play();
                 velocity.y = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
                 animator.SetBool("Jumping", true);
                 
